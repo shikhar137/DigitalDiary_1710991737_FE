@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { UserServiceService } from '../user-service.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { UserServiceService } from '../user-service.service';
 })
 export class PeopleComponent implements OnInit {
   id; result; myVar = true; following;
-  constructor(private route: ActivatedRoute, private httpservice: UserServiceService) { }
+  constructor(private route: ActivatedRoute, private httpservice: UserServiceService , private router : Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -44,6 +44,11 @@ export class PeopleComponent implements OnInit {
       this.httpservice.follow(id).subscribe(res=>{
         this.ngOnInit();
       });
+    }
+    logout(){
+      sessionStorage.removeItem('token');
+    this.httpservice.isLoggedIn(false);
+    this.router.navigate(['login']);
     }
   
 

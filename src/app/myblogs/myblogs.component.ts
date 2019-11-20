@@ -31,6 +31,11 @@ export class MyblogsComponent implements OnInit {
   editProfile(){
     this.router.navigate(['edit']);
   }
+  logout(){
+    sessionStorage.removeItem('token');
+  this.httpservice.isLoggedIn(false);
+  this.router.navigate(['login']);
+  }
 
 
   delete(id){

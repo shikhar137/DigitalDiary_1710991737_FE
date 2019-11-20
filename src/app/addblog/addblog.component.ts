@@ -32,11 +32,14 @@ export class AddblogComponent implements OnInit {
      title: this.title,
      create_date: this.date,
      status:this.status
+     
+
    };
    console.log(blog);
    this.blogservice.addblog(blog).subscribe(res=>{
      console.log('added to database');
      console.log(res);
+     this.router.navigate(['/myblogs']);
    })
    }
  

@@ -43,20 +43,22 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form>
+				<form class="was-validated">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
 						<input type="text" class="form-control" placeholder="username" required [(ngModel)]="username" name="username">
-						
+						<div class="invalid-feedback">Please fill out this field.</div>
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password" [(ngModel)]="password" name="password">
+						<input type="password" class="form-control" placeholder="password" [(ngModel)]="password" name="password" required>
 					</div>
+					<div class="invalid-feedback">Please fill out this field.</div>
+					<div class="valid-feedback">Password Valid</div>
                     <div class="form-group">
 						<input type="submit" value="Login" (click)="login()" class="btn float-right login_btn">
 					</div>

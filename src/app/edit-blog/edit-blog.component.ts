@@ -34,5 +34,10 @@ export class EditBlogComponent implements OnInit {
       this.router.navigate(['/myblogs']);
 });
   }
+   logout(){
+     sessionStorage.removeItem('token');
+   this.httpservice.isLoggedIn(false);
+   this.router.navigate(['login']);
+   }
 
 }
