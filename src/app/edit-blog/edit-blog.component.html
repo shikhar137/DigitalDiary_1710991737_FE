@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top t">
+				<div class="container">
+				  <a class="navbar-brand y" href="http://localhost:4200/main"><h3><b>Digital Diary</b></h3></a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				  </button>
+				  <div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto">
+					  <li class="nav-item active">
+						<a class="nav-link" href="#">Home
+						  <span class="sr-only">(current)</span>
+						</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#">About</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#">Services</a>
+					  </li>
+					  <li class="nav-item">
+						<a class="nav-link" href="#">Contact</a>
+					  </li>
+					  
+					</ul>
+					
+				  </div>
+				</div>
+			  </nav>
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3><b>Edit Your Blog</b></h3>
+				
+			</div>
+			<div class="card-body">
+				<form>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Title</span>
+						</div>
+						<input type="text" class="form-control" placeholder="Title" required value="" [(ngModel)]="blogs[0].title" name="txtName" >
+						
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Body</span>
+						</div>
+                        <textarea class="form-control" name="txtMsg" placeholder="Enter Text" rows=10 [(ngModel)]="blogs[0].body"></textarea>
+					</div>
+                    <div class="form-group">
+							<select [(ngModel)]="status" name="status" class="btn-group">
+									<option value="private" >Private</option>
+									<option value="public">Public</option>
+								  </select>
+						<input type="submit" value="Edit Post" (click)="edit()" class="btn float-right login_btn">
+					</div>
+				</form>
+			</div>
+		
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,280 @@
+
+<html lang="en">
+
+    <head>
+  
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+  
+      <title>Case Study 2</title>
+  
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  
+  <style></style>
+    </head>
+  
+    <body>
+  <div class="section" id="b-section-header" name="Header" j>
+      <div class="widget Header" data-version="2" id="Header1">
+  <div class="header j">
+  <div class="container ">
+  
+  <h1><a href="">Hey {{result.firstname}} !!</a></h1>
+  <p class = "m"><i>Welcome to the world of blogging {{result.firstname}} here you can pen your thoughts just the way you do it in a diary , not only this get around a bunch of people who share same thoughts as of yours . So what are you waiting for start posting .....!!!!!</i></p>
+  </div>
+  </div>
+  </div></div>
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark t fixed-top">
+            <div class="container">
+              <a class="navbar-brand y" href="http://localhost:4200/main"><h3><b>Digital Diary</b></h3></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="http://localhost:4200/main">Home
+                      <span class="sr-only">(current)</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:4200/profile">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:4200/myblogs">My Blogs</a>
+                  </li>
+                  <li class="nav-item">
+                        <a class="nav-link" (click)="logout()"><b>Logout</b></a>
+                      </li>
+            
+                </ul>
+            <div class="ml-auto my-2 my-lg-0">
+      <div class="section" id="b-section-navbar-search-form" name="Navbar: search form"><div class="widget BlogSearch" data-version="2" id="BlogSearch1">
+      <form action="" class="form-inline">
+           
+      <input aria-label="Search this blog" class="form-control mr-sm-2" name="search" [(ngModel)]="value" type="text" placeholder="Search User" type="text" (keyup)="searchUser(value)">
+      <button class="btn my-2 my-sm-0 k" type="submit">Search</button>
+      </form>
+      </div></div>
+      </div>
+              </div>
+            </div>
+          </nav>
+    <br>
+      <div class="container-fluid gedf-wrapper">
+        
+          <div class="row">
+              
+              
+              <div class="col-md-3">
+                
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="h5">@{{result.username}}</div>
+                          <div class="h7 text-muted">Fullname : {{result.firstname}} {{result.lastname}}</div>
+                          <div class="h7">{{result.description}}
+                          </div>
+                      </div>
+                      <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
+                              <div class="h6 text-muted">Followers</div>
+                              <div class="h5">{{result.followers.length}}</div>
+                          </li>
+                          <li class="list-group-item">
+                              <div class="h6 text-muted">Following</div>
+                              <div class="h5">{{result.following.length}}</div>
+                          </li>
+                          
+                      </ul>
+                  </div>
+              </div>
+              <div class="col-md-6 gedf-main">
+          
+                  <!--- \\\\\\\Post-->
+                  
+                  <div class="card gedf-card">
+                      <div class="card-header">
+                          <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                              <li class="nav-item">
+                                  <a class="nav-link active l" id="posts-tab" data-toggle="tab" href="#posts" role="tab" aria-controls="posts" aria-selected="true">Write Something</a>
+                              </li>
+                              
+                          </ul>
+                      </div>
+                      <div class="card-body">
+                          <div class="tab-content" id="myTabContent">
+                              <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
+                                      <div class="form-group">
+                                              <label class="sr-only" for="message">title</label>
+                                              <input type="text" class="form-control" name="title" [(ngModel)]='title' placeholder="Blog Title">
+                                          </div>
+                                  <div class="form-group">
+                                      <label class="sr-only" for="message">body</label>
+                                      <textarea class="form-control" name="message" rows="8" [(ngModel)]="body" placeholder="Write Something .."></textarea>
+                                  </div>
+          
+                              </div>
+                              
+                          </div>
+                          <div class="btn-toolbar justify-content-between">
+                                <select [(ngModel)]="status" name="status" class="btn-group">
+                                        <option value="private" >Private</option>
+                                        <option value="public">Public</option>
+                                      </select>
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn-primary" (click)="post()">Post</button>
+                            </div>
+                            
+                        </div>
+                      </div>
+                      
+                  </div>
+                 <br>
+                  <div class="card gedf-card" *ngFor="let p of posts">
+                      <div class="card-header">
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="d-flex justify-content-between align-items-center">
+                                  <div class="mr-2">
+                                      <img class="rounded-circle" width="45" src="https://picsum.photos/50/50" alt="">
+                                  </div>
+                                  <div class="ml-2">
+                                      <div class="h5 m-0">@{{p.user.username}}</div>
+                                      <div class="h7 text-muted">{{p.user.firstname}} {{p.user.lastname}}</div>
+                                  </div>
+                              </div>
+                              <div>
+                                  <div class="dropdown">
+                                      <button class="btn btn-link dropdown-toggle" type="button" id="gedf-drop1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                          <i class="fa fa-ellipsis-h"></i>
+                                      </button>
+                                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+                                          <div class="h6 dropdown-header">Configuration</div>
+                                          <a class="dropdown-item" style="cursor: pointer;" (click)="view(p.id)">View</a>
+                                          <a class="dropdown-item" style="cursor: pointer;" (click)="unfollow(p.user.userid)">Unfollow</a>
+                                         
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+          
+                      </div>
+                      <div class="card-body" >
+                          <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>{{p.createDate | date:'medium'}}</div>
+                          <a class="card-link" href="#">
+                              <h5 class="card-title">{{p.title}}</h5>
+                          </a>
+          
+                          <p class="card-text">
+                              {{p.body}}
+                          </p>
+                      </div>
+                      <div class="card-footer">
+                            
+                        <button (click)="view(p.id)" class="card-link btn btn-primary " ><i class="fa fa-gittip"></i>Read More</button>
+                      </div>
+                      
+                  </div>
+                  <br>
+                
+              </div>
+             
+             
+
+              <div class="col-md-3">
+                    <div class="card gedf-card">
+                            <div class="card-header">
+                                Search Suggestions
+                              </div>
+                              <ul class="list-group list-group-flush" *ngFor="let s of search" (click)="userprofile(s.userid)">
+                                <li class="list-group-item"> @ {{s.username}}<br/><h6 class="text-muted">{{s.firstname}} {{s.lastname}}</h6></li>
+                                
+                              </ul>
+                        </div>
+                    <div class="card my-4">
+                            <h5 class="card-header">Search Blogs</h5>
+                            <div class="card-body">
+                              <div class="input-group">
+                                <input type="text" [(ngModel)]="blogSearch" class="blogSearch" placeholder="Search blog" (keyup)="searchblog(blogSearch)">
+                                
+                                <span class="input-group-btn">
+
+                                  <button class="btn btn-secondary" type="button">Go!</button>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                  
+          <div class="card my-4 v">
+              <h5 class="card-header ">Words from the CEO</h5>
+              <div class="card-body">
+              Hi my name is Shikhar Gilhotra and here I am providing you a platform where you can discover and share some great and joyfull moments of your life . Digital Diary provide you a medium which diminishes the bridge between you and the person with whom you think you share a common interest .
+              </div>
+            </div>
+                
+              </div>
+          </div>
+          </div>
+  
+  
+  
+    
+  
+      <!--footer-->
+  <footer class="kilimanjaro_area">
+          <!-- Top Footer Area Start -->
+          <div class="foo_top_header_one section_padding_100_70 j">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-12 col-md-6 col-lg-3">
+                          <div class="kilimanjaro_part">
+                              <h5>About Digital Diary</h5>
+                              <p><i>Welcome to the world of blogging {{result.firstname}} here you can pen your thoughts just the way you do it in a diary , not only this get around a bunch of people who share same thoughts as of yours . So what are you waiting for start posting .....!!!!!</i></p>
+                             
+                          </div>
+                          
+                      </div>
+                      <div class="col-12 col-md-6 col-lg-3">
+                          
+                      </div>
+                     
+                      <div class="col-12 col-md-6 col-lg-3">
+                          <div class="kilimanjaro_part">
+                              <h5>Quick Contact</h5>
+                             
+                              <div class="kilimanjaro_single_contact_info">
+                                  <h5>Email:</h5>
+                                  <p>shikhargilhotra5499@gmail.com <br> shikhar171737.cse@chitkara.edu.in</p>
+                              </div>
+                          </div>
+                          <div class="kilimanjaro_part">
+                        
+                           
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <!-- Footer Bottom Area Start -->
+          <div class=" kilimanjaro_bottom_header_one section_padding_50 text-center">
+              <div class="container">
+                
+              </div>
+          </div>
+      </footer>	
+      <!-- Bootstrap core JavaScript -->
+     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  
+    </body>
+  
+  </html>
+  
