@@ -47,6 +47,11 @@ export class ProfileComponent implements OnInit {
       console.log(this.blogs);
     })
   }
+  logout(){
+    sessionStorage.removeItem('token');
+  this.httpservice.isLoggedIn(false);
+  this.router.navigate(['login']);
+  }
  view(id){
    this.router.navigate(['/blog/',id]);
  }
